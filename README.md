@@ -6,8 +6,10 @@ symmetric encryption algorithm.
 
 ## Compilation Instructions
 
-```gcc -o output encryption.c```
+Compilation can by done by use of the provided makefile - simple type ```make``` into the terminal to compile.
 
-```./output```
+## Running
+
+To run the program, type ```./encryption``` into the terminal
 
 

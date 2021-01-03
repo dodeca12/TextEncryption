@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_BUF 256
 
@@ -11,18 +12,8 @@ unsigned char processCounterValue(unsigned char counterValue, unsigned char keyV
 unsigned char incrementByOne(unsigned char binaryNum);
 unsigned char processSourceByte(unsigned char c, unsigned char counterValue);
 
-/*
-  Author:	
-  Student#:	  
-  Purpose:  A simple encryption program that uses an
-  			implementation of incrementation counter,similar to 
-			the Counter mode of the Advanced Encryption Standard algorithm
-  Usage:	Use gcc to compile with the -o flag: "gcc -o output assignment1.c"
-			Run program using "./output"
-			Command Line arguments: (1), (2); where (1),(2) are single input numbers
-			Then enter plaintext to encrypt for choice (1) or enter encrypted 
-			sequence to de-crypt for choice (2) 
-*/
+//TODO: Comments
+
 int main()
 {
 	char str[8];
@@ -98,19 +89,12 @@ int main()
 
 		default:
 			printf("\nSorry, you can only choose 1 or 2 as input, please try again");
-			exit;
+			exit(1);
 		}
 	return 0;
 }
 
-/*
-  Function:  processCounterValue
-  Purpose:   process the counterValue with the keyValue as described by (1)
-       in:   byte of counterValue
-       in:   byte of keyValue
-   return:   byte value of processed counterValue byte
-*/
-// Part (1) of the algorithm
+
 unsigned char processCounterValue(unsigned char counterValue, unsigned char keyValue)
 {
 	int position, bitPosition1, bitPosition2;
@@ -149,12 +133,7 @@ unsigned char processCounterValue(unsigned char counterValue, unsigned char keyV
 	return returnBitVal;
 }
 
-/*
-  Function:  incrementByOne
-  Purpose:   increment the input byte by a value 1 as decribed in (2), (3)
-       in:   byte of key or counter
-   return:   byte value that has been incremented by a value of 1
-*/
+
 unsigned char incrementByOne(unsigned char binaryNum)
 {
 	unsigned char binaryOne = 0b00000001;
@@ -167,13 +146,7 @@ unsigned char incrementByOne(unsigned char binaryNum)
 	return binaryNum;
 }
 
-/*
-  Function:  processSourceByte
-  Purpose:   process the source byte with the counter value as described by (4)
-       in:   byte of character of plain/encrypted text
-       in:   byte of counter value
-   return:   byte value of processed source byte using the counter value
-*/
+
 unsigned char processSourceByte(unsigned char c, unsigned char counterValue)
 {
 	unsigned char tempCharValue = c;
@@ -248,37 +221,19 @@ unsigned char processSourceByte(unsigned char c, unsigned char counterValue)
 	return tempCharValue;
 }
 
-/*
-  Function:  getBit
-  Purpose:   retrieve value of bit at specified position
-       in:   character from which a bit will be returned
-       in:   position of bit to be returned
-   return:   value of bit n in character c (0 or 1)
-*/
+
 unsigned char getBit(unsigned char c, int n)
 {
 	return ((c & (1 << n)) >> n);
 }
 
-/*
-  Function:  setBit
-  Purpose:   set specified bit to 1
-       in:   character in which a bit will be set to 1
-       in:   position of bit to be set to 1
-   return:   new value of character c with bit n set to 1
-*/
+
 unsigned char setBit(unsigned char c, int n)
 {
 	return (c | (1 << n));
 }
 
-/*
-  Function:  clearBit
-  Purpose:   set specified bit to 0
-       in:   character in which a bit will be set to 0
-       in:   position of bit to be set to 0
-   return:   new value of character c with bit n set to 0
-*/
+
 unsigned char clearBit(unsigned char c, int n)
 {
 	return (c & (~(1 << n)));
