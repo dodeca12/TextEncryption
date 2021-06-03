@@ -50,6 +50,8 @@ Please enter your encrypted message to be de-crypted:
 80 108 100 96 115 100 33 104 105 114 101 32 109 101 33 -1
 Please hire me!
 ```
+## ~~LICENSE~~ LICENCE
 
+This project is ~~licensed~~ licenced under the [MIT Licence](https://opensource.org/licenses/MIT). Please see [LICENSE](LICENSE) for more information.
 
 
